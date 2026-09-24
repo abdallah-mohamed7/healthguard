@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-gray-50;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .glass-bubble-user {
+    @apply bg-medical-600 text-white shadow-md;
+  }
+
+  .glass-bubble-ai {
+    @apply bg-white text-gray-800 border border-gray-100 shadow-sm;
+  }
+
+  /* Neumorphic Utilities */
+  .neumorphic-flat {
+    background: #f8fafc;
+    box-shadow: 8px 8px 16px #e2e8f0, -8px -8px 16px #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+
+  .neumorphic-pressed {
+    background: #f8fafc;
+    box-shadow: inset 6px 6px 12px #e2e8f0, inset -6px -6px 12px #ffffff;
+    border-radius: 20px;
+  }
+
+  .neumorphic-teal {
+    background: #f0fdfa;
+    box-shadow: 8px 8px 16px #ccfbf1, -8px -8px 16px #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Page Transition Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out forwards;
+}

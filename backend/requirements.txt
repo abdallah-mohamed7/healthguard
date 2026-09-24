@@ -1,0 +1,13 @@
+flask
+flask-cors
+requests
+python-dotenv
+langchain-google-genai
+pymongo
+gunicorn
+stripe
+twilio
+dnspython
+playwright
+groq
+certifi
