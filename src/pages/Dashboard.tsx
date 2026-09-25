@@ -340,7 +340,7 @@ const Dashboard: React.FC = () => {
             {/* Right Sidebar: Fitness Panel / Health Dashboard */}
             <aside className={`
                 fixed inset-y-0 right-0 left-0 w-full lg:left-auto lg:w-[var(--right-panel-width)] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-30 transform transition-transform duration-300 flex flex-col
-                lg:relative lg:transform-none lg:block px-4 lg:px-0
+                lg:relative lg:transform-none lg:flex lg:flex-col px-4 lg:px-0
                 ${activeRightSidebar ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}
             `} style={{ ['--right-panel-width' as any]: `${rightPanelWidth}px` }}>
                 {/* Mobile Back Button + Panel Tabs */}
@@ -421,7 +421,7 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
                 {/* Panel Content */}
-                <div className="flex-1 overflow-hidden relative min-h-0">
+                <div className="flex-1 overflow-y-auto relative min-h-0">
                     {rightPanel === 'fitness' ? (
                         <FitnessPanel />
                     ) : rightPanel === 'health' ? (
