@@ -185,7 +185,7 @@ export const sendMessageToAgent = async (
 
     try {
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3.8-flash',
         contents: [{ role: 'user', parts: currentParts }],
         config: {
           systemInstruction: visionSystemPrompt
@@ -363,7 +363,7 @@ export const sendMessageToAgent = async (
   if (isEditRequest && image) {
     if (!ai) return { text: "Error: Gemini API Key missing for Image Editing.", toolCalls: null, groundingMetadata: null, suggestedActions: [], image: undefined, audio: null };
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
+      model: 'gemini-3.1-flash-image',
       contents: {
         parts: [
           { inlineData: { mimeType: 'image/jpeg', data: image } },
@@ -382,7 +382,7 @@ export const sendMessageToAgent = async (
   }
 
   // Define Model and Config based on Mode
-  let modelId = 'gemini-2.5-flash';
+  let modelId = 'gemini-3.8-flash';
   let config: any = {};
 
   const locationString = userLocation ? `at latitude ${userLocation.lat}, longitude ${userLocation.lng}` : "unknown";
@@ -401,7 +401,7 @@ export const sendMessageToAgent = async (
     // ... (Managed by OpenRouter now, unreachable here normally unless fallback)
   } else {
     // STANDARD MODE: Gemini 2.5 Flash with Grounding
-    modelId = 'gemini-2.5-flash';
+    modelId = 'gemini-3.8-flash';
     systemInstructionText += `
   5. **Visual Aids**: If your advice involves a physical action or specific item, you can generate an image. To do this, include a \`visual_aid_prompt\` in your JSON metadata.
   6. **Location & Maps**: The user is currently located ${locationString}. 
@@ -584,7 +584,7 @@ export const sendMessageToAgent = async (
             try {
               console.log("Generating visual aid for:", visualAidPrompt);
               const imgResponse = await ai.models.generateContent({
-                model: 'gemini-2.5-flash-image',
+                model: 'gemini-3.1-flash-image',
                 contents: { parts: [{ text: visualAidPrompt }] },
                 config: { imageConfig: { aspectRatio: '4:3' } }
               });

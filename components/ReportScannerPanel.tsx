@@ -141,7 +141,7 @@ const ReportScannerPanel: React.FC = () => {
             const ai = new GoogleGenAI({ apiKey });
             const base64 = await fileToBase64(file);
             const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
+                model: 'gemini-3.8-flash',
                 contents: [{
                     role: 'user',
                     parts: [
