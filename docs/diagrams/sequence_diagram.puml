@@ -1,0 +1,20 @@
+@startuml
+autonumber
+actor User
+participant "React Client" as Client
+participant "Flask API" as Backend
+participant "OCR / AI Engine" as AI
+database "MongoDB" as DB
+
+User -> Client: Upload Lab Report (PDF/Image)
+Client -> Backend: POST /api/reports/upload
+Backend -> AI: Forward document for OCR extraction
+AI --> Backend: Return extracted tests, values, and units
+Backend -> Backend: Compare with reference ranges & flag anomalies
+Backend --> Client: Return structured review draft
+User -> Client: Verify / edit values and submit
+Client -> Backend: POST /api/reports/confirm
+Backend -> DB: Persist structured biometric records
+DB --> Backend: Write confirmed
+Backend --> Client: Return updated timeline data
+@enduml
