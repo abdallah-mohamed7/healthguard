@@ -87,7 +87,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNewChat, isOpen, toggleSidebar, ses
         `}
                 style={{ ['--sidebar-width' as any]: `${desktopWidth}px` }}
             >
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full overflow-hidden">
 
                     {/* Header / Logo */}
                     <div className="p-6 flex items-center justify-between">
@@ -128,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNewChat, isOpen, toggleSidebar, ses
                     </div>
 
                     {/* Chat History */}
-                    <div className="flex-1 overflow-y-auto px-2 space-y-6 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-300 dark:hover:scrollbar-thumb-slate-600">
+                    <div className="flex-1 min-h-0 overflow-y-auto px-2 space-y-6 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-300 dark:hover:scrollbar-thumb-slate-600">
                         {groups.length === 0 && (
                             <div className="text-center py-10 px-4 opacity-50">
                                 <History className="w-10 h-10 text-slate-300 dark:text-slate-600 mx-auto mb-3" />
